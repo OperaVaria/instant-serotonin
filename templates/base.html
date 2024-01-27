@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>{{title_variable}}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
+  </style>
+</head>
+<body>
+{% block body %} {% endblock %}
+<footer>
+  <p>OperaVaria,
+  <script>document.write(new Date().getFullYear())</script>
+  <br>Contact:
+  <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
+</footer>
+</body>
+</html>
