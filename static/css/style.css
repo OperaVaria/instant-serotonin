@@ -70,7 +70,7 @@ button {
   background-color: #191919;
   border: none;
   color: #FFFFFF;
-  padding: 16px 32px;
+  padding: 24px 64px;
   text-align: center;
   font-size: 0.9rem;
   margin: 4px 2px;
@@ -87,13 +87,11 @@ button:hover {
 
 .green {
     background-color: #04AA6D;
-    flex: 50%
     
 }
 
 .orange {
     background-color: #f4511e;
-    flex: 50%
 }
 
 img{

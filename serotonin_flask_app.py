@@ -3,6 +3,8 @@ Flask app that collects and displays a random
 meme animal picture upon website loading.
 Current options: capybara, manul.
 Pictures sourced from subreddits.
+
+By OperaVaria, 2024.
 """
 
 # Flask imports:

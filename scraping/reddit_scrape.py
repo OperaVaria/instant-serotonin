@@ -5,7 +5,8 @@ import pickle
 
 def reddit_collect(sub_red_name, user_agent_name, file_name):
     """Reddit scraper function. Gets all pictures from hot top 30 of a subreddit.
-       Pickles it into a file."""
+       Pickles it into a file.
+       PRAW and personal reddit app used."""
     
     reddit = praw.Reddit(
         client_id = "YkfbqV1Dplt5rmDx4hMhDg",
