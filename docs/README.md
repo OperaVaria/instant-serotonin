@@ -1,7 +1,8 @@
 # Instant Serotonin
 
 This is the source code for a simple webapp that scrapes the internet for meme
-animal (currently capybara and manul) pictures, and displays one at random when the user accesses the webpage. The app is mainly written in Python, utilising the Flask web framework.
+animal (currently capybara and manul) pictures, and displays one at random when the user accesses the webpage.
+The app is mainly written in Python, utilising the Flask web framework.
 
 ## Functionality
 

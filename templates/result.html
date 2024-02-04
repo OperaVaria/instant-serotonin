@@ -1,25 +1,23 @@
+<!-- Result page -->
 {% extends "base.html" %}
 {% block body %}
-  <div class="container">
-    <div class="title">
-      <h1>{{page_title}}</h1>
-    </div>
-    <div class="break"></div>
-    <div class="subtitle">
-      <img src="{{post_pic}}">
-      <h2>"{{post_title}}"</h2>
-    </div>
-    <div class="break"></div>
-    <div class="item">
-      <h3>Form: {{post_location}}<br>
-          Uploaded by: {{post_uploader}}</h3>
-    </div>
-    <div class="break"></div>
-    <div class="item left">
-      <button class="orange" onClick="window.location.reload()">New</button>
-    </div>
-    <div class="item right">
-      <button class="green" onclick="history.back()">Back</button>
-    </div>
+<div class="container">
+  <div class="title">
+    <h1>{{page_title}}</h1>
   </div>
+  <div class="subtitle">
+    <img class="normal" src="{{post_pic}}">
+    <h2>"{{post_title}}"</h2>
+  </div>
+  <div class="item fullwide">
+    <h3>Form: {{post_location}}<br>
+        Uploaded by: {{post_uploader}}</h3>
+  </div>
+  <div class="item btn_left">
+    <button class="orange" onclick="window.location.reload(true)">New</button>
+  </div>
+  <div class="item btn_right">
+    <button class="green" onclick="loadPage('/')">Back</button>
+  </div>
+</div>
 {% endblock %}

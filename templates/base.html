@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Contains base elements that are displayed on all pages. -->
 <html lang="en">
 <head>
   <title>{{title_bar}}</title>
@@ -6,18 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
 </head>
 <body>
+<!-- Jinja2 nesting -->
 {% block body %}{% endblock %}
+<hr>
+<!-- Footer part of body but on every page. -->
 <footer>
-  <p>OperaVaria,
-    <script>document.write(new Date().getFullYear())</script>
-    <br>Contact:
-  <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
+  <p>OperaVaria, <span id="yearVariable"></span>
+  <br>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
+  <img class="icon" src="{{ url_for('static', filename='img/github.svg') }}"
+   alt="Link to source code" onclick="loadNewTab('https://github.com/OperaVaria/instant-serotonin')"></img>
 </footer>
+<!-- Javascript file. -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

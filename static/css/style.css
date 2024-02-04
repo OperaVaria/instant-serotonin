@@ -1,84 +1,99 @@
 /* Simple styling using flexbox */
 
-html {
-    background-color: #1F2933;
-    background-repeat: no-repeat;
-    background-position: top left;
+/* Google font imports (Lato 300, Roboto 300). */
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
+
+/* Global */
+body {
     background-attachment: fixed;
+    background-color: #1F2933;
+    background-position: top left;
+    background-repeat: no-repeat;
+    color: #B6B8BC;
     font-size: calc(15px + 0.390625vw);
     text-align: center;
-    color: #B6B8BC;
 }
 
+/* All CSS items */
 * {
     box-sizing: border-box;
-    padding: 5px;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container */
 .container {
-    display: flex;
-    align-items: center;
     align-content: space-around;
-    justify-content: space-around;
+    align-items: center;
+    display: flex;
     flex-wrap: wrap;
+    gap: 5vh;
+    justify-content: space-around;
 }
 
-.title {
-    flex: 100%;
+/* Container elements */
+
+.title {        
+    flex-basis: 100%;    
     font-family: Georgia, serif;
-    font-style: normal;
-    font-size: 2rem;
+    font-size: 2em;
+    margin-top: 3vh;
+    margin-bottom: 1.5vh;
+    max-width: 90vw;
 }
 
 .subtitle {
-    flex: 100%;
+    flex-basis: 100%;    
     font-family: "Lato", sans-serif;
-    font-style: normal;
-    font-size: 1.25rem;
+    font-size: 1.5em;
+    margin: 1vh;
+    max-width: 90vw;
 }
 
 .item {
     font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-size: 1rem;
+    font-size: 1.25em;
+    margin: 1vh;
 }
 
-.left {
-    flex: 50%;
+.pic_right .pic_left {
+    flex-basis: 50%;
 }
 
-.right {
-    flex: 50%;
+.btn_right .btn_left {
+    flex-basis: 30%;
 }
 
-@media (max-width: 800px) {
-.right, .left {
-    flex: 100%;
-}
-}
-
-.break {
+.fullwide {
     flex-basis: 100%;
-    overflow: hidden;
-    padding: 0;
-    height: 0;
-    margin: 0;
-    border: 0;
 }
+
+/* Clickable items */
+
+.clickable_pic {
+    cursor: pointer;
+    opacity: 0.6;
+    transition: 0.3s;    
+}
+
+.clickable_pic:hover {
+    opacity: 1;
+}
+
+/* Buttons */
 
 button {
   background-color: #191919;
   border: none;
   color: #FFFFFF;
-  padding: 24px 64px;
-  text-align: center;
-  font-size: 0.9rem;
-  margin: 4px 2px;
-  opacity: 0.6;
-  transition: 0.3s;
-  display: inline-block;
-  text-decoration: none;
   cursor: pointer;
+  font-size: 1em;
+  height: 3em;
+  opacity: 0.6;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+  width: 10em;
 }
 
 button:hover {
@@ -94,17 +109,51 @@ button:hover {
     background-color: #f4511e;
 }
 
-img{
-    max-width: 70%;
-    height: auto;
+/* Images */
+
+img.normal {
     box-shadow:
     -50px -50px 0 -40px #B6B8BC,
     50px 50px 0 -40px #B6B8BC;
+    height: auto;
+    margin: 1.25em;
+    max-width: 50vw;
+    padding: 4px;
+}
+
+/* GitHub icon. */
+img.icon {
+    cursor: pointer;
+    height: auto;
+    margin: 0.5rem;
+    max-width: 2rem;
+    transition: 0.3s;
+}
+
+img.icon:hover {
+    opacity: 0.5;
+}
+
+/* Footer */
+
+hr {
+    border-top: 3px solid #B6B8BC;
+    margin: 5vh auto;
+    width: 95%;
 }
 
 footer {
     display: block;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-size: 0.75rem;
+    margin-bottom: 2.5vh;
+}
+
+/* Resizing for smaller screens. */
+@media (max-width: 1024px) {
+    .right, .left {
+        flex-basis: 100%;
+    }
+
+    img.normal {
+        max-width: 75vw;
+    }
 }

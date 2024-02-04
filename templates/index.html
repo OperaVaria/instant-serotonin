@@ -1,27 +1,26 @@
+<!-- Selector page -->
 {% extends "base.html" %}
 {% block body %}
-  <div class="container">
-    <div class="title">
-      <h1>Instant Serotonin</h1>
-    </div>
-    <div class="break"></div>
-    <div class="subtitle">
-      <h2>Choose your meme animal</h2>
-    </div>
-    <div class="break"></div>
-    <div class="item left">
-      <h3>Capybara</h3>
-      <a href="capybara">
-        <img src="{{ url_for('static', filename='img/base_capybara.jpg') }}" alt="Click Capybara">
-      </a>
-      <h3></h3>
-    </div>
-    <div class="item right">
-      <h3>Manul</h3>
-      <a href="manul">
-        <img src="{{ url_for('static', filename='img/base_manul.jpg') }}" alt="Click Manul">
-      </a>
-      <h3></h3>
-    </div>
+<div class="container">
+  <div class="title">
+    <h1>Instant Serotonin</h1>
   </div>
+  <div class="subtitle">
+    <h2>Choose your meme animal</h2>
+  </div>
+  <div class="item pic_left">
+    <h3>Capybara</h3>
+    <a href="capybara">
+      <img class="normal clickable_pic" src="{{ url_for('static', filename='img/base_capybara.jpg') }}"
+       alt="Click Capybara">
+    </a>
+  </div>
+  <div class="item pic_right">
+    <h3>Manul</h3>
+    <a href="manul">
+      <img class="normal clickable_pic" src="{{ url_for('static', filename='img/base_manul.jpg') }}"
+       alt="Click Manul">
+    </a>
+  </div>
+</div>
 {% endblock %}
