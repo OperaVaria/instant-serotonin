@@ -143,6 +143,7 @@ hr {
 }
 
 footer {
+    font-family: "Roboto", sans-serif;
     display: block;
     margin-bottom: 2.5vh;
 }
