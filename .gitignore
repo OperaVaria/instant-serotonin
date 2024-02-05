@@ -1,7 +1,5 @@
-/__pychache__/
+__pychache__/
 scraping/__pychache__/
-scraping/__pycache__/reddit_scrape.cpython-312.pyc
-/.venv/
-/.vscode/
-/.temp/
-/data/
+.venv/
+.vscode/
+.temp/
