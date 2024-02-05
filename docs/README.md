@@ -8,7 +8,7 @@ The app is mainly written in Python, utilising the Flask web framework.
 
 The webapp is set up to be hosted at [pythonanywhere.com](https://www.pythonanywhere.com/).
 Scheduled background tasks (found in the "scraping" directory) collect the top 30 posts in
-the "hot" category from subreddits every day, and store the information in pickle files
+the "hot" category from subreddits every night, and then store the information in pickle files
 ("data" directory). The raw data is then read when Flask assembles the requested HTML page,
 and a random post is selected.
 
@@ -18,8 +18,10 @@ screen types.
 ## Screenshots
 
 ![screenshot_1](assets/images/main.jpg "main.html")
+
 ![screenshot_1](assets/images/capybara.jpg "capybara.html")
-![screenshot_1](assets/images/manul.jpg "manul.html")
+
+![screenshot_1](assets/images/sand_cat.jpg "sand_cat.html")
 
 ## Other
 
