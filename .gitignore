@@ -1,5 +1,4 @@
-__pycache__/
-scraping/__pychache__
+**/__pycache__/
 .venv/
 .vscode/
 .temp/
