@@ -3,18 +3,23 @@
 /* Google font imports (Lato 300, Roboto 300). */
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
 
-/* Global */
-body {
-    background-attachment: fixed;
-    background-color: #1F2933;
-    background-position: top left;
-    background-repeat: no-repeat;
+/* Root element (for global font settings) */
+html {
     color: #B6B8BC;
     font-size: calc(15px + 0.390625vw);
     text-align: center;
 }
 
-/* All CSS items */
+/* Background */
+body {
+    background-attachment: fixed;
+    background-color: #1F2933;
+    background-position: top left;
+    background-repeat: no-repeat;
+
+}
+
+/* All CSS items (avoid margin errors) */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -37,7 +42,7 @@ body {
     flex-basis: 100%;
     font-family: Georgia, serif;
     font-size: 2em;
-    margin-top: 3vh;
+    margin-top: 3.5vh;
     margin-bottom: 1.5vh;
 }
 
@@ -126,8 +131,8 @@ img.normal {
 img.icon {
     cursor: pointer;
     height: auto;
-    margin: 0.5rem;
-    max-width: 2rem;
+    margin: 0.5em;
+    max-width: 2em;
     transition: 0.3s;
 }
 
@@ -141,6 +146,7 @@ hr {
     border-top: 3px solid #B6B8BC;
     margin: 5vh auto;
     width: 95%;
+    overflow: hidden;
 }
 
 footer {
