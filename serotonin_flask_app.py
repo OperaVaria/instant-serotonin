@@ -52,7 +52,7 @@ def manul():
 def sand_cat():
     """Set up sand cat page."""
     post = load_from_pickle("./data/scdata.p")
-    return render_template("result.html", title_var="SandCat", post_pic=post.url,
+    return render_template("result.html", title_var="Sand Cat", post_pic=post.url,
                            post_title=post.title, post_location="r/" + post.subreddit.display_name,
                            post_uploader=post.author)
 
