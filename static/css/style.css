@@ -19,7 +19,7 @@ body {
 
 }
 
-/* All CSS items (avoid margin errors) */
+/* All HTML items (avoid margin errors) */
 * {
     box-sizing: border-box;
     margin: 0;
