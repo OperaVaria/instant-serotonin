@@ -2,7 +2,11 @@
 <!-- Contains base elements that are displayed on all pages. -->
 <html lang="en">
 <head>
-  <title>{{title_bar}}</title>
+  {% if title_var %}
+    <title>Instant Serotonin | Random {{title_var}}</title>
+  {% else %}
+    <title>"Instant Serotonin | Quick copium for All"</title>
+  {% endif %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +14,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
 </head>
 <body>
-<!-- Jinja2 nesting -->
+<!-- Jinja2 body nesting -->
 {% block body %}{% endblock %}
 <hr>
 <!-- Footer part of body but on every page. -->
