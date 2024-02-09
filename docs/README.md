@@ -3,7 +3,7 @@
 This is the source code for a simple webapp that scrapes the internet for cute
 animal pictures, and displays one at random upon user request.
 The app is mainly written in Python, utilising the Flask web framework.
-The frontend part is standard HTML-CCS-JS, with a simple custom styling.
+The frontend part is a standard HTML-CCS-JS website, with a simple custom styling.
 
 ## Functionality
 
