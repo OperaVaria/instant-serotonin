@@ -8,4 +8,4 @@ Part of the "Instant Serotonin" project by OperaVaria.
 from reddit_scrape import reddit_collect
 
 # Scrape manul subreddits:
-reddit_collect("PallasCats+manuls", "manul_request", "./instant-serotonin/data/manuldata.p")
+reddit_collect("PallasCats+manuls", "manul_request", "./instant-serotonin/data/manul_data.p")

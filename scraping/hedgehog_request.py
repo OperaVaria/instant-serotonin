@@ -8,4 +8,4 @@ Part of the "Instant Serotonin" project by OperaVaria.
 from reddit_scrape import reddit_collect
 
 # Scrape hedgehog subreddits:
-reddit_collect("Hedgehog+Hedgehogs+HedgehogsAreLiquid", "hedgehog_request", "./instant-serotonin/data/hedgehdata.p")
+reddit_collect("Hedgehog+Hedgehogs+HedgehogsAreLiquid", "hedgehog_request", "./instant-serotonin/data/hedgehog_data.p")

@@ -1,6 +1,10 @@
 """
+serotonin_flask_app.py
+
+Main file of the "Instant Serotonin" project.
+
 Flask app that collects and displays a random
-cute animal picture upon website loading.
+cute/meme animal picture/gif upon website loading.
 Current options: capybara, manul, sandcat, hedgehog.
 Pictures sourced from subreddits.
 
@@ -8,21 +12,34 @@ By OperaVaria, 2024.
 """
 
 # Flask imports:
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+from flask_session import Session
 
 # Built-in imports:
-import random
 import pickle
+from datetime import timedelta
+from random import choice
 
-# Declare Flask app:
+# Create Flask app:
 app = Flask(__name__)
 
+# Set up session:
+app.config['SECRET_KEY'] = "7dUP6J^n@dyNgQ"
+app.config["SESSION_TYPE"] = "filesystem"
+app.config["SESSION_PERMANENT"] = True
+app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(hours=24)
+# app.config["SESSION_COOKIE_SECURE"] = True
+sess = Session(app)
 
-# Function to get random post from pickled list:
-def load_from_pickle(file_path):
+
+def load_from_pickle(file_path, exception_list):
+    """Function to get random post from pickled list
+       with a post exception list:"""
     with open(file_path, "rb") as file:
         sub_list = pickle.load(file)
-    post = random.choice(sub_list)
+    # This line looks horrendous but it is the quickest way
+    # to remove items from a list which are present in another.
+    post = choice(list(set(sub_list) - set(exception_list)))
     return post
 
 
@@ -32,37 +49,32 @@ def index():
     """Set up index page."""
     return render_template("index.html")
 
-@app.route("/capybara")
-def capybara():
-    """Set up capybara page."""
-    post = load_from_pickle("./data/capydata.p")
-    return render_template("result.html", title_var="Capybara", post_pic=post.url,
+@app.route("/<animal>")
+def result(animal):
+    """Set up result page."""
+    if animal in ("capybara", "hedgehog", "manul", "sand_cat"):
+        # Setup for title variable.
+        animal_name = str.title(animal.replace("_", " "))
+        # Set up session exception list if not existent.
+        if "except_pool" not in session:
+            session["except_pool"] = []
+        # Load post from pickled list, excluding except_pool. If out of posts,
+        # display error page.
+        try:    
+            post = load_from_pickle(f"./data/{animal}_data.p",
+                                    session.get("except_pool"))
+        except IndexError:
+            return render_template("error.html", title_var=animal_name,
+                                   error_message=f"Out of {animal_name}s for today!")
+        # Append current post to exception list.
+        session["except_pool"].append(post)
+        # Render results page with proper variables.
+        return render_template("result.html", title_var=animal_name, post_pic=post.url,
                            post_title=post.title, post_location="r/" + post.subreddit.display_name,
                            post_uploader=post.author)
-
-@app.route("/manul")
-def manul():
-    """Set up manul page."""
-    post = load_from_pickle("./data/manuldata.p")
-    return render_template("result.html", title_var="Manul", post_pic=post.url,
-                           post_title=post.title, post_location="r/" + post.subreddit.display_name,
-                           post_uploader=post.author)
-
-@app.route("/sand_cat")
-def sand_cat():
-    """Set up sand cat page."""
-    post = load_from_pickle("./data/scdata.p")
-    return render_template("result.html", title_var="Sand Cat", post_pic=post.url,
-                           post_title=post.title, post_location="r/" + post.subreddit.display_name,
-                           post_uploader=post.author)
-
-@app.route("/hedgehog")
-def hedgehog():
-    """Set up hedgehog page."""
-    post = load_from_pickle("./data/hedgehdata.p")
-    return render_template("result.html", title_var="Hedgehog", post_pic=post.url,
-                           post_title=post.title, post_location="r/" + post.subreddit.display_name,
-                           post_uploader=post.author)
+    # If url for animal does not exist, display error message:
+    else:
+        return render_template("error.html", error_message="No such Page!")
 
 
 # When run as main run on localhost, port 8080:

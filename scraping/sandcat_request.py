@@ -8,4 +8,4 @@ Part of the "Instant Serotonin" project by OperaVaria.
 from reddit_scrape import reddit_collect
 
 # Scrape sand cat subreddit:
-reddit_collect("sandcats", "sand_cat_request", "./instant-serotonin/data/scdata.p")
+reddit_collect("sandcats", "sand_cat_request", "./instant-serotonin/data/sand_cat_data.p")

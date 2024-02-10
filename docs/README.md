@@ -1,18 +1,20 @@
 # Instant Serotonin
 
-This is the source code for a simple webapp that scrapes the internet for cute
-animal pictures, and displays one at random upon user request.
+This is the source code for a simple webapp that scrapes the internet for cute/meme
+animal pictures/gifs, and displays one at random upon user request.
 The app is mainly written in Python, utilising the Flask web framework.
 The frontend part is a standard HTML-CCS-JS website, with a simple custom styling.
 
 ## Functionality
 
 The webapp, in its current form, is set up to be hosted at [pythonanywhere.com](https://www.pythonanywhere.com/).
-Scheduled background tasks (./scraping/) collect the top 30 posts in
-the "hot" category from preset subreddits every night, and then store the information in pickle files
-(./data/). The raw data is then read when Flask assembles the requested HTML page, and a random post is selected.
+Scheduled background tasks (the scripts in ./scraping/) collect the top 30 "hot" posts from preset subreddits every night,
+and store the information in pickle files (./data/). The raw data is then read when Flask assembles the requested HTML page,
+and a random post is selected.
 
-The HTML-CSS side utilises a responsive, Flexbox layout. It is optimized to display correctly on all
+Server-side Flask sessions are utilised so that the user does not get the same post twice on the same day.
+
+The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display correctly on all
 screen types.
 
 ## Screenshots

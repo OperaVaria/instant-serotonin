@@ -11,7 +11,7 @@ import pickle
 
 def reddit_collect(sub_red_name, user_agent_name, file_name):
     """Reddit scraper function.
-       Gets all pictures from hot top 30 of any subreddit.
+       Gets all pictures and gifs from hot top 30 of any subreddit.
        Pickles list into a binary file for quick reading.
        Prints number of items collected.
        PRAW and personal reddit app used."""

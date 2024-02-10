@@ -1,0 +1,1 @@
+Location of the server-side session data.

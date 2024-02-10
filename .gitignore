@@ -2,5 +2,3 @@
 .temp/
 .venv/
 .vscode/
-flask_session/
-*.p
