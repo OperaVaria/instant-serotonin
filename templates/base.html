@@ -2,6 +2,7 @@
 <!-- Contains base elements that are displayed on all pages. -->
 <html lang="en">
 <head>
+  <!-- Jinja2 title setup. -->
   {% if title_var %}
     <title>Instant Serotonin | Random {{title_var}}</title>
   {% else %}
@@ -14,7 +15,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
 </head>
 <body>
-<!-- Jinja2 body nesting -->
+<!-- Jinja2 body nesting. -->
 {% block body %}{% endblock %}
 <hr>
 <!-- Footer part of body but on every page. -->
