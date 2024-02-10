@@ -1,3 +1,9 @@
+"""
+sandcat_request.py
+
+Part of the "Instant Serotonin" project by OperaVaria.
+"""
+
 # Import scraping function:
 from reddit_scrape import reddit_collect
 
