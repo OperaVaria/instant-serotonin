@@ -6,7 +6,7 @@
   {% if title_var %}
     <title>Instant Serotonin | Random {{title_var}}</title>
   {% else %}
-    <title>"Instant Serotonin | Quick copium for All"</title>
+    <title>Instant Serotonin | Quick copium for All</title>
   {% endif %}
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,12 @@
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
 </head>
+<!-- Display reset alert box if flag set to True. -->
+{% if alert_flag %}
+<body onload="resetAlert()">
+{% else %}
 <body>
+{% endif %}
 <!-- Jinja2 body nesting. -->
 {% block body %}{% endblock %}
 <hr>

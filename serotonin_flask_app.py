@@ -12,7 +12,7 @@ By OperaVaria, 2024.
 """
 
 # Flask imports:
-from flask import Flask, render_template, session
+from flask import Flask, flash, render_template, request, session
 from flask_session import Session
 
 # Built-in imports:
@@ -44,10 +44,18 @@ def load_from_pickle(file_path, exception_list):
 
 
 # Page building decorators:
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def index():
     """Set up index page."""
-    return render_template("index.html")
+    # If redirected here from reset button POST request:
+    # Reset exception list.
+    # Display alert box.
+    if request.method == "POST":
+        session["except_pool"] = []
+        alert = True
+    else:
+        alert = False
+    return render_template("index.html", alert_flag=alert)
 
 @app.route("/<animal>")
 def result(animal):
@@ -65,16 +73,17 @@ def result(animal):
                                     session.get("except_pool"))
         except IndexError:
             return render_template("error.html", title_var=animal_name,
-                                   error_message=f"Out of {animal_name}s for today!")
+                                   error_message=f"Out of {animal_name}s for today!",
+                                   error_type="out_of_posts")
         # Append current post to exception list.
         session["except_pool"].append(post)
         # Render results page with proper variables.
         return render_template("result.html", title_var=animal_name, post_pic=post.url,
                            post_title=post.title, post_location="r/" + post.subreddit.display_name,
                            post_uploader=post.author)
-    # If url for animal does not exist, display error message:
+    # If URL for animal does not exist, display error message:
     else:
-        return render_template("error.html", error_message="No such Page!")
+        return render_template("error.html", error_message="No such Page!", error_type="no_url")
 
 
 # When run as main run on localhost, port 8080:

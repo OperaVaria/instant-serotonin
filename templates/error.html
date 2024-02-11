@@ -5,8 +5,21 @@
   <div class="title">
       <h1>{{error_message}}</h1>
   </div>
+  <!-- Invalid URL returns a page with a single "back" button. -->
+  {% if error_type == "no_url" %}
   <div class="item fullwide">
     <button class="green" onclick="loadPage('/')">Back</button>
   </div>
+  <!-- "Out of posts" error returns a page with "reset" and "back" button. -->
+  {% elif error_type == "out_of_posts" %}  
+  <div class="item btn_left">
+    <form action="/" method="post">
+      <button class="orange" type="submit" value="Submit">Reset</button>
+    </form>
+  </div>
+  <div class="item btn_right">
+    <button class="green" onclick="loadPage('/')">Back</button>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}

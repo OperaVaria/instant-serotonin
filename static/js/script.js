@@ -11,3 +11,8 @@ function loadPage(Page) {
 function loadNewTab(Page) {
     window.open(Page, "_blank");
 }
+
+// Reset alert box.
+function resetAlert() {
+    alert("Content reset successful!");
+}
