@@ -28,7 +28,7 @@ app.config['SECRET_KEY'] = "7dUP6J^n@dyNgQ"
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(hours=24)
-# app.config["SESSION_COOKIE_SECURE"] = True
+app.config["SESSION_COOKIE_SECURE"] = True
 sess = Session(app)
 
 
