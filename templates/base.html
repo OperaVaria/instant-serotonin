@@ -8,22 +8,18 @@
   {% else %}
     <title>Instant Serotonin | Quick copium for All</title>
   {% endif %}
+  <!-- Head meta and links. -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<!-- Display reset alert box if flag set to True. -->
-{% if alert_flag %}
-<body onload="resetAlert()">
-{% else %}
 <body>
-{% endif %}
 <!-- Jinja2 body nesting. -->
 {% block body %}{% endblock %}
 <hr>
-<!-- Footer, part of body but on every page. -->
+<!-- Footer, part of body, on every page. -->
 <footer>
   <p>OperaVaria, <span id="yearVariable"></span>
   <br>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
@@ -32,5 +28,9 @@
 </footer>
 <!-- Javascript file. -->
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!-- Alert box displayed on load if flag set to True. -->
+{% if alert_flag %}
+<script>window.onload = setTimeout(resetAlert, 1000)</script>
+{% endif %}
 </body>
 </html>
