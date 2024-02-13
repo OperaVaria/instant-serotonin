@@ -12,7 +12,7 @@ Scheduled background tasks (the scripts in ./scraping/) collect the top 30 "hot"
 and store the information in pickle files (./data/). The raw data is then read when Flask assembles the requested HTML page,
 and a random post is selected.
 
-Server-side Flask sessions are utilised so that the user does not get the same post twice on the same day.
+Server-side Flask sessions are utilised (via the Flask-Session extension) to avoid duplicate results for the same user.
 
 The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display correctly on all
 screen types.

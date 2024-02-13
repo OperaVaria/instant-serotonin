@@ -38,6 +38,13 @@
 ## "A Sand Cat (Felis margarita) looking alert sat on a rock"
 
 - By Pete Gallop
-- Used as ./static/img/base_sand_cat.jpg - resized to 500*750
-- **[From Shutterstock](https://www.pexels.com/photo/close-up-shot-of-a-capybara-sitting-on-the-ground-8316571/)**
+- Used as ./static/img/base_sand_cat.jpg - cut to 500*750
+- **[From Shutterstock](https://www.shutterstock.com/image-photo/sand-cat-felis-margarita-looking-alert-163032776)**
 - **[Shutterstock Standard Image Licence](https://www.shutterstock.com/license)**
+
+## "Close-Up Photo of a Capybara Sleeping"
+
+- By Rutpratheep Nilpechr
+- Used as ./static/img/base_error.jpg - resized to 500*750
+- **[From Pexels](https://www.pexels.com/photo/close-up-photo-of-a-capybara-sleeping-6359552/)**
+- **[Pexels Licence](https://www.pexels.com/license/)**
