@@ -5,6 +5,9 @@
   <div class="title">
       <h1>{{error_message}}</h1>
   </div>
+  <div class="subtitle">
+    <img class="normal" src="{{ url_for('static', filename='img/base_manul.jpg') }}" alt="Error picture">
+  </div>
   <!-- Invalid URL returns a page with a single "back" button. -->
   {% if error_type == "no_url" %}
   <div class="item fullwide">

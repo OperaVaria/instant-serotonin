@@ -11,7 +11,7 @@
   <!-- Capybara -->
   <div class="item pic_left">
     <h3>Capybara</h3>
-    <a href="capybara">
+    <a href="{{ url_for('result', animal='capybara') }}">
       <img class="normal clickable_pic" src="{{ url_for('static', filename='img/base_capybara.jpg') }}"
        alt="Click Capybara">
     </a>
@@ -19,7 +19,7 @@
   <!-- Manul -->
   <div class="item pic_right">
     <h3>Manul</h3>
-    <a href="manul">
+    <a href="{{ url_for('result', animal='manul') }}">
       <img class="normal clickable_pic" src="{{ url_for('static', filename='img/base_manul.jpg') }}"
        alt="Click Manul">
     </a>
@@ -27,7 +27,7 @@
   <!-- Sand Cat -->
   <div class="item pic_left">
     <h3>Sand Cat</h3>
-    <a href="sand_cat">
+    <a href="{{ url_for('result', animal='sand_cat') }}">
       <img class="normal clickable_pic" src="{{ url_for('static', filename='img/base_sand_cat.jpg') }}"
        alt="Click Sand Cat">
     </a>
@@ -35,7 +35,7 @@
   <!-- Hedgehog -->
   <div class="item pic_right">
     <h3>Hedgehog</h3>
-    <a href="hedgehog">
+    <a href="{{ url_for('result', animal='hedgehog') }}">
       <img class="normal clickable_pic" src="{{ url_for('static', filename='img/base_hedgehog.jpg') }}"
        alt="Click Hedgehog">
     </a>

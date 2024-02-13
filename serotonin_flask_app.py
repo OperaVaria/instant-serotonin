@@ -16,6 +16,7 @@ from flask import Flask, render_template, request, session
 from flask_session import Session
 
 # Built-in imports:
+import json
 import pickle
 from datetime import timedelta
 from random import choice
@@ -24,7 +25,7 @@ from random import choice
 app = Flask(__name__)
 
 # Set up session:
-app.config['SECRET_KEY'] = "7dUP6J^n@dyNgQ"
+app.config.from_file("./secret_key_config/key.json", load=json.load) # Secret key loaded from json file.
 app.config["SESSION_TYPE"] = "filesystem"
 app.config["SESSION_PERMANENT"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = timedelta(hours=24)
@@ -63,7 +64,7 @@ def result(animal):
     if animal in ("capybara", "hedgehog", "manul", "sand_cat"):
         # Setup for title variable.
         animal_name = str.title(animal.replace("_", " "))
-        # Set up session exception list if not existent.
+        # Set up session exception list if non-existent.
         if "except_pool" not in session:
             session["except_pool"] = []
         # Load post from pickled list, excluding except_pool. If out of posts,
