@@ -1,0 +1,27 @@
+<!-- "No posts left" error message page -->
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+  <div class="title">
+    <h1>{{error_message}}</h1>
+  </div>
+  <div class="subtitle">
+    <img
+      class="normal"
+      src="{{ url_for('static', filename='img/base_error.jpg') }}"
+      alt="Error picture"
+    />
+  </div>
+  <!-- Reset and Back buttons. -->
+  <div class="container btn">
+    <div class="item">
+      <form action="/" method="post">
+        <button class="orange" type="submit" value="Submit">Reset</button>
+      </form>
+    </div>
+    <div class="item">
+      <button class="green" onclick="loadPage('/')">Back</button>
+    </div>
+  </div>
+</div>
+{% endblock %}

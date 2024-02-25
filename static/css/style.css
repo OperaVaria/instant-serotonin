@@ -1,89 +1,86 @@
 /* Simple styling using flexbox */
 
-/* Google font imports (Lato 300, Roboto 300). */
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300&display=swap');
+/* Font import */
+@font-face{
+  font-family: Roboto-Light;
+  src: url("../fonts/Roboto-Light.ttf") format("truetype");
+  font-style: normal;
+}
 
 /* Root element (for global font settings) */
 html {
-    color: #B6B8BC;
-    font-size: calc(15px + 0.390625vw);
-    text-align: center;
+  color: #b6b8bc;
+  font-family: Roboto-Light, sans-serif;
+  font-size: calc(15px + 0.390625vw);
+  text-align: center;
 }
 
 /* Background */
 body {
-    background-attachment: fixed;
-    background-color: #1F2933;
-    background-position: top left;
-    background-repeat: no-repeat;
-
+  background-attachment: fixed;
+  background-color: #1f2933;
+  background-position: top left;
+  background-repeat: no-repeat;
 }
 
 /* All HTML items (avoid margin errors) */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Container */
 .container {
-    align-content: space-around;
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5vh;
-    justify-content: center;
+  align-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vh;
+  justify-content: center;
+}
+
+.btn {
+  gap: 1vh 5vw;
 }
 
 /* Container elements */
 
 .title {
     flex-basis: 100%;
-    font-family: Georgia, serif;
-    font-size: 2em;
-    margin-top: 3.5vh;
-    margin-bottom: 1.5vh;
+    font-size: 2.5em;
+    margin: 1em;
 }
 
 .subtitle {
     flex-basis: 100%;
-    font-family: "Lato", sans-serif;
     font-size: 1.5em;
-    margin: 1vh;
+    margin: 1em
 }
 
 .item {
-    font-family: "Roboto", sans-serif;
-    font-weight: normal;
-    font-size: 1.25em;
-    font-style: normal;
-    margin: 1vh;
-    text-decoration: none;
+  font-size: 1.25em;
+  margin: 0.5em;
 }
 
-.pic_right, .pic_left {
-    flex-basis: 40%;
+.half-wide {
+  flex-basis: 40%;
 }
 
-.btn_right, .btn_left {
-    flex-basis: 25%;
-}
-
-.fullwide {
-    flex-basis: 100%;
+.full-wide {
+  flex-basis: 100%;
 }
 
 /* Clickable items */
 
-.clickable_pic {
-    cursor: pointer;
-    opacity: 0.6;
-    transition: 0.3s;
+.clickable-pic {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
 }
 
-.clickable_pic:hover {
-    opacity: 1;
+.clickable-pic:hover {
+  opacity: 1;
 }
 
 /* Buttons */
@@ -91,85 +88,73 @@ body {
 button {
   background-color: #191919;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   font-size: 1em;
   height: 3em;
   opacity: 0.6;
   text-align: center;
-  text-decoration: none;
   transition: 0.3s;
   width: 10em;
 }
 
 button:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .green {
-    background-color: #04AA6D;
-
+  background-color: #04aa6d;
 }
 
 .orange {
-    background-color: #f4511e;
+  background-color: #f4511e;
 }
 
 /* Images */
 
 img.normal {
-    box-shadow:
-    -50px -50px 0 -40px #B6B8BC,
-    50px 50px 0 -40px #B6B8BC;
-    height: auto;
-    margin: 1.25em;
-    max-width: 50vw;
-    padding: 4px;
+  box-shadow: -50px -50px 0 -40px #b6b8bc, 50px 50px 0 -40px #b6b8bc;
+  height: auto;
+  margin: 1.25em;
+  max-width: 50vw;
+  padding: 4px;
 }
 
 /* GitHub icon. */
 img.icon {
-    cursor: pointer;
-    height: auto;
-    margin: 0.5em;
-    max-width: 2em;
-    transition: 0.3s;
+  cursor: pointer;
+  height: auto;
+  margin: 0.5em;
+  max-width: 2em;
+  transition: 0.3s;
 }
 
 img.icon:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 /* Footer */
 
 hr {
-    border-top: 3px solid #B6B8BC;
-    margin: 5vh auto;
-    width: 95%;
-    overflow: hidden;
+  border-top: 3px solid #b6b8bc;
+  margin: 2em auto;
+  width: 95%;
+  overflow: hidden;
 }
 
 footer {
-    font-family: "Roboto", sans-serif;
-    display: block;
-    margin-bottom: 2.5vh;
+  display: block;
+  margin-bottom: 1em;
 }
 
 /* Resizing for smaller screens. */
 @media (max-width: 1024px) {
-    .title {
-        flex-basis: 90%;
-    }
 
-    .subtitle {
-        flex-basis: 80%;
-    }
+  .half-wide {
+    flex-basis: 100%;
+  }
 
-    .right, .left {
-        flex-basis: 100%;
-    }
-
-    img.normal {
-        max-width: 75vw;
-    }
+  img.normal {
+    max-width: 75vw;
+  }
 }

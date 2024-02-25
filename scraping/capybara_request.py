@@ -8,4 +8,4 @@ Part of the "Instant Serotonin" project by OperaVaria.
 from reddit_scrape import reddit_collect
 
 # Scrape capybara subreddits:
-reddit_collect("capybara+capybaras+capybarasoncritters", "capybara_request", "./instant-serotonin/data/capybara_data.p")
+reddit_collect("capybara+capybaras+capybarasoncritters", "capybara_request", "./data/capybara_data.p")

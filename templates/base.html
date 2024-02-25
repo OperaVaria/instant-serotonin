@@ -6,7 +6,7 @@
   {% if title_var %}
     <title>Instant Serotonin | Random {{title_var}}</title>
   {% else %}
-    <title>Instant Serotonin | Quick copium for All</title>
+    <title>Instant Serotonin | Quick copium for All!</title>
   {% endif %}
   <!-- Head meta and links. -->
   <meta charset="utf-8">
@@ -21,8 +21,9 @@
 <hr>
 <!-- Footer, part of body, on every page. -->
 <footer>
-  <p>OperaVaria, <span id="yearVariable"></span>
-  <br>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
+  <p>&copy; OperaVaria, <span id="yearVariable"></span>
+  <p>Version - {{version}}</p>
+  </p>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
   <img class="icon" src="{{ url_for('static', filename='img/github.svg') }}"
    alt="Link to source code" onclick="loadNewTab('https://github.com/OperaVaria/instant-serotonin')"></img>
 </footer>
@@ -30,7 +31,7 @@
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 <!-- Alert box displayed on load if flag set to True. -->
 {% if alert_flag %}
-<script>window.onload = setTimeout(resetAlert, 1000)</script>
+<script>window.addEventListener("load", resetAlert);</script>
 {% endif %}
 </body>
 </html>

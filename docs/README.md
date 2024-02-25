@@ -1,35 +1,37 @@
 # Instant Serotonin
 
-This is the source code for a simple webapp that scrapes the internet for cute/meme
-animal pictures/gifs, and displays one at random upon user request.
-The app is mainly written in Python, utilising the Flask web framework.
-The frontend part is a standard HTML-CCS-JS website, with a simple custom styling.
+This is the source code for a simple web app that scrapes the internet for cute
+animal pictures, and displays one at random upon user request.
+Its mainly written in Python, utilising the Flask web framework.
+The frontend component is a standard HTML-CCS-JS website, with a simple custom styling.
 
 ## Functionality
 
 The webapp, in its current form, is set up to be hosted at [pythonanywhere.com](https://www.pythonanywhere.com/).
 Scheduled background tasks (the scripts in ./scraping/) collect the top 30 "hot" posts from preset subreddits every night,
 and store the information in pickle files (./data/). The raw data is then read when Flask assembles the requested HTML page,
-and a random post is selected.
+and a random post is selected. The scraping scripts use the [PRAW module by Bryce Boe](https://github.com/praw-dev/praw).
 
-Server-side Flask sessions are utilised (via the Flask-Session extension) to avoid duplicate results for the same user.
+Server-side Flask sessions are utilised (via the Flask-Session extension) to avoid sending the same results to the same user.
 
 The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display correctly on all
 screen types.
 
 ## Screenshots
 
-![screenshot_1](assets/images/main.jpg "main.html")
+![screenshot_1](assets/screenshots/main.jpg "main.html")
 
-![screenshot_1](assets/images/capybara.jpg "capybara.html")
+![screenshot_1](assets/screenshots/capybara.jpg "capybara.html")
 
-![screenshot_1](assets/images/sand_cat.jpg "sand_cat.html")
+![screenshot_1](assets/screenshots/sand_cat.jpg "sand_cat.html")
 
 ## Other
 
 The currently running version is accessible: **[here](https://serotonin-operavaria.eu.pythonanywhere.com/)**.
 
 Sources of the static images used in this project: **[image_sources.md](image_sources.md)**.
+
+Font utilized: Roboto Light designed by Christian Robertson.
 
 **[Contact](mailto:lcs_it@proton.me)**
 

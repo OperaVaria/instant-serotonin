@@ -1,5 +1,8 @@
 **/__pycache__/
-secret_key_config/key.json
+config/secretKey.json
+data/*.p
+flask_session/*
+scraping/reddit_login.py
 .temp/
 .venv/
 .vscode/
