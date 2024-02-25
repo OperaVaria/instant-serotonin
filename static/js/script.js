@@ -4,15 +4,17 @@ document.getElementById("yearVariable").innerHTML = currentYear;
 
 // Load a page, same tab.
 function loadPage(Page) {
-    window.location.href = Page;
-}  
+  window.location.href = Page;
+}
 
 // Load a page in new tab.
 function loadNewTab(Page) {
-    window.open(Page, "_blank");
+  window.open(Page, "_blank");
 }
 
 // Reset alert box.
 function resetAlert() {
+  setTimeout(() => {
     alert("Content reset successful!");
+  }, 1000);
 }
