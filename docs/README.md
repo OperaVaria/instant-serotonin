@@ -31,7 +31,7 @@ The currently running version is accessible: **[here](https://serotonin-operavar
 
 Sources of the static images used in this project: **[image_sources.md](image_sources.md)**.
 
-Font utilized: Roboto Light designed by Christian Robertson.
+Font utilized: [Roboto Light designed by Christian Robertson](https://fonts.google.com/specimen/Roboto).
 
 **[Contact](mailto:lcs_it@proton.me)**
 
