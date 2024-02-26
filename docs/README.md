@@ -19,11 +19,11 @@ screen types.
 
 ## Screenshots
 
-![screenshot_1](assets/screenshots/main.jpg "index.html")
-
-![screenshot_1](assets/screenshots/manul.jpg "manul.html")
-
-![screenshot_1](assets/screenshots/capybara.jpg "capybara.html")
+<p align="center">
+  <img src="./assets/screenshots/main.jpg" alt="index.html" height=auto width="700">
+  <img src="./assets/screenshots/manul.jpg" alt="manul.html" height=auto width="700">
+  <img src="./assets/screenshots/capybara.jpg" alt="capybara.html" height=auto width="700">
+</p>
 
 ## Other
 
