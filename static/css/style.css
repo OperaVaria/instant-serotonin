@@ -50,13 +50,13 @@ body {
 .title {
     flex-basis: 100%;
     font-size: 2.5em;
-    margin: 1em;
+    margin: 1em 1em 0em 1em;
 }
 
 .subtitle {
     flex-basis: 100%;
     font-size: 1.5em;
-    margin: 1em
+    margin: 0em 1em 1em 1em;
 }
 
 .item {
@@ -141,14 +141,19 @@ img.icon:hover {
   text-decoration: underline;
 }
 
-/* Footer */
-
-hr {
+.ln-top {
+  border-top: 3px solid #b6b8bc;
+  width: 80%;
+  overflow: hidden;
+}
+.ln-bottom {
   border-top: 3px solid #b6b8bc;
   margin: 2em auto;
   width: 95%;
   overflow: hidden;
 }
+
+/* Footer */
 
 footer {
   display: block;
