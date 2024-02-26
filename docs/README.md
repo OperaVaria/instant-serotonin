@@ -2,20 +2,19 @@
 
 This is the source code for a simple web app that scrapes the internet for cute
 animal pictures, and displays one at random upon user request.
-Its mainly written in Python, utilising the Flask web framework.
+It is mainly written in Python, utilising the Flask web framework.
 The frontend component is a standard HTML-CCS-JS website, with a simple custom styling.
 
 ## Functionality
 
 The webapp, in its current form, is set up to be hosted at [pythonanywhere.com](https://www.pythonanywhere.com/).
-Scheduled background tasks (the scripts in ./scraping/) collect the top 30 "hot" posts from preset subreddits every night,
+Scheduled background tasks (the scripts in ./scraping/) collect the top 30 "hot" posts from pre-set subreddits every night,
 and store the information in pickle files (./data/). The raw data is then read when Flask assembles the requested HTML page,
-and a random post is selected. The scraping scripts use the [PRAW module by Bryce Boe](https://github.com/praw-dev/praw).
+and a random post is selected. The reddit scraping scripts use the [PRAW module by Bryce Boe](https://github.com/praw-dev/praw).
 
-Server-side Flask sessions are utilised (via the Flask-Session extension) to avoid sending the same results to the same user.
+Server-side Flask sessions are utilised (via the Flask-Session extension) to avoid sending the same results to the same user multiple times.
 
-The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display correctly on all
-screen types.
+The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display correctly on all screen types.
 
 ## Screenshots
 
