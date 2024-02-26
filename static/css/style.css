@@ -1,7 +1,7 @@
 /* Simple styling using flexbox */
 
 /* Font import */
-@font-face{
+@font-face {
   font-family: Roboto-Light;
   src: url("../fonts/Roboto-Light.ttf") format("truetype");
   font-style: normal;
@@ -30,7 +30,8 @@ body {
   padding: 0;
 }
 
-/* Container */
+/* Containers */
+
 .container {
   align-content: space-around;
   align-items: center;
@@ -71,18 +72,6 @@ body {
   flex-basis: 100%;
 }
 
-/* Clickable items */
-
-.clickable-pic {
-  cursor: pointer;
-  opacity: 0.6;
-  transition: 0.3s;
-}
-
-.clickable-pic:hover {
-  opacity: 1;
-}
-
 /* Buttons */
 
 button {
@@ -112,6 +101,7 @@ button:hover {
 
 /* Images */
 
+/* Normal */
 img.normal {
   box-shadow: -50px -50px 0 -40px #b6b8bc, 50px 50px 0 -40px #b6b8bc;
   height: auto;
@@ -120,7 +110,7 @@ img.normal {
   padding: 4px;
 }
 
-/* GitHub icon. */
+/* GitHub icon */
 img.icon {
   cursor: pointer;
   height: auto;
@@ -131,6 +121,24 @@ img.icon {
 
 img.icon:hover {
   opacity: 0.5;
+}
+
+
+/* Clickable */
+.clickable-pic {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.clickable-pic:hover {
+  opacity: 1;
+}
+
+/* Other */
+
+.underl {
+  text-decoration: underline;
 }
 
 /* Footer */

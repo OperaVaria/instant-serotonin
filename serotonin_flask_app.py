@@ -99,8 +99,7 @@ def result(animal):
                                 session.get("exceptPool"))
     except IndexError:
         return render_template("no-post.html", title_var=animal_title,
-                            error_message=f"Out of {animal_var}s for today!",
-                            version=__version__)
+                               animal_var=animal_var, version=__version__)
     # Append current post to exception list.
     session["exceptPool"].append(post)
     # Render results page with proper variables.
