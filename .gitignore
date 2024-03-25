@@ -1,8 +1,6 @@
 **/__pycache__/
-config/secretKey.json
 data/*.p
 flask_session/*
-scraping/reddit_login.py
 .temp/
 .venv/
 .vscode/

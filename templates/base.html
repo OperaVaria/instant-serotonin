@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <!-- Contains base elements that are displayed on all pages. -->
 <html lang="en">
-<head>
-  <!-- Jinja2 title setup. -->
-  {% if title_var %}
-    <title>Instant Serotonin | Random {{title_var}}</title>
-  {% else %}
-    <title>Instant Serotonin | Quick copium for All!</title>
-  {% endif %}
-  <!-- Head meta and links. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+  <head>
+    <!-- Jinja2 title setup. -->
+    {% if title_var %}
+      <title>Instant Serotonin | Random {{title_var}}</title>
+    {% else %}
+      <title>Instant Serotonin | Quick copium for All!</title>
+    {% endif %}
+    <!-- Head meta and links. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get a random cute animal picture form the internet for a quick serotonin release!"/>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  </head>
 <body>
 <!-- Jinja2 body nesting. -->
-{% block body %}{% endblock %}
-<hr class="ln-bottom">
-<!-- Footer, part of body, on every page. -->
-<footer>
-  <p>&copy; OperaVaria, <span id="yearVariable"></span>
-  <p>Version - {{version}}</p>
-  </p>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
-  <img class="icon" src="{{ url_for('static', filename='img/github.svg') }}"
-   alt="Link to source code" onclick="loadNewTab('https://github.com/OperaVaria/instant-serotonin')"></img>
-</footer>
-<!-- Javascript file. -->
-<script src="{{ url_for('static', filename='js/script.js') }}"></script>
-<!-- Alert box displayed on load if flag set to True. -->
-{% if alert_flag %}
-<script>window.addEventListener("load", resetAlert);</script>
-{% endif %}
+  {% block body %}{% endblock %}
+  <hr class="ln-bottom">
+  <!-- Footer, part of body, on every page. -->
+  <footer>
+    <p>&copy; OperaVaria, {{current_year}}</span>
+    <p>Version - {{version}}</p>
+    </p>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
+    <img id="github-btn" class="icon" src="{{ url_for('static', filename='img/github.svg') }}"
+    alt="Link button to source code"></img>
+  </footer>
+  <!-- Javascript file. -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <!-- Alert box displayed on load if flag set to True. -->
+  {% if alert_flag %}
+  <script>window.addEventListener("load", resetAlert);</script>
+  {% endif %}
 </body>
 </html>

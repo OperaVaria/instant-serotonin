@@ -1,6 +1,31 @@
-// Insert current year into copyright info.
-let currentYear = new Date().getFullYear();
-document.getElementById("yearVariable").innerHTML = currentYear;
+// Base JavasScript for functionality present on all pages.
+
+// Declare constants:
+const githubBtn = document.getElementById("github-btn");
+const newPostBtn = document.getElementById("new-btn");
+
+// Add event listeners:
+
+// Source code button.
+if (githubBtn) {
+  githubBtn.addEventListener("click", () => {
+    loadNewTab("https://github.com/OperaVaria/instant-serotonin");
+  });
+}
+
+// New post button (ins practice -> reloads page).
+if (newPostBtn) {
+  newPostBtn.addEventListener("click", () => {
+    window.location.reload(true);
+  });
+}
+
+// General link buttons.
+document.querySelectorAll(".link-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    loadPage(btn.getAttribute("data-target"));
+  });
+});
 
 // Load a page, same tab.
 function loadPage(Page) {

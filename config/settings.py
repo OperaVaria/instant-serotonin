@@ -3,6 +3,9 @@
 # Timedelta import:
 from datetime import timedelta
 
+# Minify settings:
+bypass = ["robots_txt", "humans_txt", "sitemap_xml"]
+
 # Session settings:
 SESSION_TYPE = "filesystem"
 SESSION_PERMANENT = True
@@ -10,6 +13,22 @@ PERMANENT_SESSION_LIFETIME = timedelta(hours=24)
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_SAMESITE = "Strict"
+
+# Talisman settings:
+csp = {
+    "default-src": ["'none'"],
+    "connect-src": ["'self'"],
+    "script-src": [
+        "'self'",
+        # Add hashes.
+        "https://gc.kis.v2.scr.kaspersky-labs.com",
+    ],
+    "style-src": ["'self'"],
+    "img-src": ["'self'"],
+    "object-src": ["'none'"],
+    "base-uri": ["'none'"],
+    "form-action": ["'self'"],
+}
 
 # Display message when accidentally run:
 if __name__ == "__main__":

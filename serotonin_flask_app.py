@@ -4,9 +4,9 @@ serotonin_flask_app.py
 Main file of the "Instant Serotonin" project.
 
 Flask app that collects and displays a random
-cute/meme animal picture/gif upon website loading.
+cute/meme animal picture/gif upon request.
 Current options: capybara, manul, sandcat, hedgehog.
-Pictures sourced from subreddits.
+Pictures sourced from Pexels, Pixabay, Reddit and Unsplash.
 
 By OperaVaria, 2024.
 """
@@ -14,8 +14,8 @@ By OperaVaria, 2024.
 # Metadata variables:
 __author__ = "OperaVaria"
 __contact__ = "lcs_it@proton.me"
-__version__ = "1.0.0"
-__date__ = "2024.02.26"
+__version__ = "2.0.0"
+__date__ = "2024.03.26"
 
 
 # Licence:
@@ -33,35 +33,57 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Gen
 You should have received a copy of the GNU General Public License along with this program. If not,
 see <https://www.gnu.org/licenses/>
 """
-
-# Flask imports:
-from flask import Flask, abort, render_template, request, session
-from flask_session import Session
-
 # Built-in imports:
 import json
 import pickle
+from datetime import datetime
+from pathlib import Path
 from random import choice
+
+# Flask imports:
+from flask import Flask, abort, render_template, request, send_from_directory, session
+
+# Import Flask extensions:
+from flask_minify import Minify
+from flask_session import Session
+from flask_talisman import Talisman
+
+# Other imports:
+from config.settings import csp  # Content security policy settings.
+from config.settings import bypass  # Minify bypass settings.
 
 # Create Flask app.
 app = Flask(__name__)
 
+# Create absolute paths.
+config_path = Path(__file__).parents[0].resolve() / "config"
+data_path = Path(__file__).parents[0].resolve() / "data"
+
 # Flask app configuration:
-app.config.from_file("./config/secretKey.json", load=json.load) # Load secret key.
-app.config.from_pyfile("./config/settings.py") # Load other settings.
+app.config.from_file(f"{config_path}/secretKey.json", load=json.load) # Load secret key.
+app.config.from_pyfile(f"{config_path}/settings.py") # Load other settings.
+
+# Set up Talisman. Force HTTPS should normally be on, but Cloudflare handles it.
+tali = Talisman(app, content_security_policy=csp, force_https=False)
+
+# Set up Minify.
+mini = Minify(app=app, bypass=bypass, html=True, js=True, cssless=True)
 
 # Set up Session.
 sess = Session(app)
+
+# Current year variable for footer.
+current_year = datetime.now().year
 
 
 def load_from_pickle(file_path, exception_list):
     """Function to get random post from pickled list
        with an exception list passed."""
     with open(file_path, "rb") as file:
-        sub_list = pickle.load(file)
+        pickled_list = pickle.load(file)
     # This line looks horrendous but it is the quickest way
     # to remove items from a list which are present in another.
-    post = choice(list(set(sub_list) - set(exception_list)))
+    post = choice(list(set(pickled_list) - set(exception_list)))
     return post
 
 
@@ -78,7 +100,8 @@ def index():
         alert = True
     else:
         alert = False
-    return render_template("index.html", version=__version__, alert_flag=alert)
+    return render_template("index.html", current_year=current_year,
+                           version=__version__, alert_flag=alert)
 
 @app.route("/<animal>")
 def result(animal):
@@ -95,17 +118,31 @@ def result(animal):
     # Load post from pickled list, excluding exceptPool. If out of posts,
     # display error page.
     try:
-        post = load_from_pickle(f"./data/{animal}_data.p",
+        post = load_from_pickle(f"{data_path}/{animal}_data.p",
                                 session.get("exceptPool"))
     except IndexError:
-        return render_template("no-post.html", title_var=animal_title,
+        return render_template("no-post.html", current_year=current_year, title_var=animal_title,
                                animal_var=animal_var, version=__version__)
     # Append current post to exception list.
     session["exceptPool"].append(post)
     # Render results page with proper variables.
-    return render_template("result.html", title_var=animal_title, post_pic=post.url,
-                    post_title=post.title, post_location="r/" + post.subreddit.display_name,
-                    post_uploader=post.author, version=__version__)
+    return render_template("result.html", current_year=current_year,
+                           title_var=animal_title, post=post, version=__version__)
+
+@app.route("/robots.txt")
+def robots_txt():
+    """Set up robots.txt."""
+    return send_from_directory("static", "other/robots.txt")
+
+@app.route("/humans.txt")
+def humans_txt():
+    """Set up humans.txt."""
+    return send_from_directory("static", "other/humans.txt")
+
+@app.route("/sitemap.xml")
+def sitemap_xml():
+    """Set up sitemap.xml."""
+    return send_from_directory("static", "other/sitemap.xml")
 
 
 # When run as main run on localhost, port 8080:

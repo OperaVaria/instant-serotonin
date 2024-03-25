@@ -1,0 +1,17 @@
+# Login information file (placeholder).
+
+pexels:
+  api_key: fake
+
+pixabay:
+  api_key: fake
+
+reddit_app:
+  name: fake
+  id: fake
+  secret: fake
+
+unsplash:
+  id: fake
+  access_key: fake
+  secret_key: fake

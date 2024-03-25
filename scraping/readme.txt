@@ -1,1 +1,0 @@
-Location of reddit app login information (reddit_login.py).

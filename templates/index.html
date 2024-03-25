@@ -1,57 +1,58 @@
 <!-- Selector page -->
 {% extends "base.html" %}
 {% block body %}
-<div class="container">
-  <div class="title">
+<main class="container">
+  <!-- Titles -->
+  <div class="title" role="none">
     <h1>Instant Serotonin</h1>
   </div>
   <hr class="ln-top">
-  <div class="subtitle">
+  <div class="subtitle" role="none">
     <h2>Choose your source</h2>
   </div>
   <!-- Capybara -->
-  <div class="item half-wide">
-    <h3>Capybara</h3>
+  <section class="item half-wide" aria-labelledby="capybara-title">
+    <h3 id="capybara-title">Capybara</h3>
     <a href="{{ url_for('result', animal='capybara') }}">
       <img
         class="normal clickable_pic"
         src="{{ url_for('static', filename='img/base_capybara.jpg') }}"
-        alt="Random Capybara"
+        alt="Get random capybara picture"
       />
     </a>
-  </div>
+  </section>
   <!-- Manul -->
-  <div class="item half-wide">
-    <h3>Manul</h3>
+  <section class="item half-wide" aria-labelledby="manul-title">
+    <h3 id="manul-title">Manul</h3>
     <a href="{{ url_for('result', animal='manul') }}">
       <img
         class="normal clickable_pic"
         src="{{ url_for('static', filename='img/base_manul.jpg') }}"
-        alt="Random Manul"
+        alt="Get random capybara picture"
       />
     </a>
-  </div>
+  </section>
   <!-- Sand Cat -->
-  <div class="item half-wide">
-    <h3>Sand Cat</h3>
+  <section class="item half-wide" aria-labelledby="sand-cat-title">
+    <h3 id="sand-cat-title">Sand Cat</h3>
     <a href="{{ url_for('result', animal='sand_cat') }}">
       <img
         class="normal clickable_pic"
         src="{{ url_for('static', filename='img/base_sand_cat.jpg') }}"
-        alt="Random Sand Cat"
+        alt="Get random capybara picture"
       />
     </a>
-  </div>
+  </section>
   <!-- Hedgehog -->
-  <div class="item half-wide">
-    <h3>Hedgehog</h3>
+  <section class="item half-wide" aria-labelledby="hedgehog-title">
+    <h3 id="hedgehog-title">Hedgehog</h3>
     <a href="{{ url_for('result', animal='hedgehog') }}">
       <img
         class="normal clickable_pic"
         src="{{ url_for('static', filename='img/base_hedgehog.jpg') }}"
-        alt="Random Hedgehog"
+        alt="Get random capybara picture"
       />
     </a>
-  </div>
-</div>
+  </section>
+</main>
 {% endblock %}

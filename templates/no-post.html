@@ -1,27 +1,29 @@
 <!-- "No posts left" error message page -->
 {% extends "base.html" %}
 {% block body %}
-<div class="container">
-  <div class="title">
+<main class="container">
+  <!-- Title -->
+  <div class="title" role="none">
     <h1>Out of <span class=underl>{{animal_var}}s</span> for today!</h1>
   </div>
-  <div class="subtitle">
+  <!-- "Out of posts" image. -->
+  <section class="subtitle" title="'No posts left' picture">
     <img
       class="normal"
       src="{{ url_for('static', filename='img/base_error.jpg') }}"
       alt="Error picture"
     />
-  </div>
+  </section>
   <!-- Reset and Back buttons. -->
-  <div class="container btn">
-    <div class="item">
-      <form action="/" method="post">
+  <nav class="container btn" title="Buttons">
+    <div class="item" role="none">
+      <form action="/" method="post" role="none">
         <button class="orange" type="submit" value="Submit">Reset</button>
       </form>
     </div>
-    <div class="item">
-      <button class="green" onclick="loadPage('/')">Back</button>
+    <div class="item" role="none">
+      <button data-target="/" class="link-btn green">Back</button>
     </div>
-  </div>
-</div>
+  </nav>
+</main>
 {% endblock %}
