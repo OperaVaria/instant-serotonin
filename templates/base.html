@@ -22,11 +22,12 @@
   <hr class="ln-bottom">
   <!-- Footer, part of body, on every page. -->
   <footer>
-    <p>&copy; OperaVaria, {{current_year}}</span>
-    <p>Version - {{version}}</p>
-    </p>Contact: <a href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
+    <p role="none">&copy; OperaVaria, {{current_year}}</p>
+    <p role="none">Version - {{version}}</p>
+    <p role="none">Contact: <a class="custom-link"
+      href="mailto:lcs_it@proton.me">lcs_it@proton.me</a></p>
     <img id="github-btn" class="icon" src="{{ url_for('static', filename='img/github.svg') }}"
-    alt="Link button to source code"></img>
+      alt="Link button to source code"></img>
   </footer>
   <!-- Javascript file. -->
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>

@@ -25,9 +25,9 @@ def pixabay_collect(query, keys):
     pixab_list = []
     # Scrape response, create Post objects, append to list.
     for hit in res_json_data["hits"]:
-        hit = Post(f"Pixabay image (id: {hit["id"]})",
+        hit = Post(f"Pixabay image (id: {hit['id']})",
                    "Pixabay", hit["user"], "https://pixabay.com/",
-                   f"https://pixabay.com/users/{hit["user"]}-{hit["user_id"]}/",
+                   f"https://pixabay.com/users/{hit['user']}-{hit['user_id']}/",
                    hit["pageURL"], hit["largeImageURL"])
         pixab_list.append(hit)
     # Return list.

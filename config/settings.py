@@ -20,11 +20,12 @@ csp = {
     "connect-src": ["'self'"],
     "script-src": [
         "'self'",
-        # Add hashes.
+        "'sha256-/Nhp/0Mc72DYgT/sMpiOn5EDx8z4guopcViJmqvMUy0='",
         "https://gc.kis.v2.scr.kaspersky-labs.com",
     ],
     "style-src": ["'self'"],
-    "img-src": ["'self'"],
+    "img-src": ["*"],
+    "font-src": ["'self'"],
     "object-src": ["'none'"],
     "base-uri": ["'none'"],
     "form-action": ["'self'"],

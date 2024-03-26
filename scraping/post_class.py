@@ -13,7 +13,7 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Post:
     """Class to store data for a singe image post in a standardized way."""
-    title: str = "No title"
+    title: str
     source: str
     author: str
     src_url: str

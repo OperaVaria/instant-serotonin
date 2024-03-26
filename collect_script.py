@@ -22,17 +22,19 @@ def scrape(animal_name, query, subreddits, keys):
     """Call collecting functions and assemble pickle file form retuned lists."""
     # Reddit
     reddit_list = reddit_collect(subreddits, keys)
-    # "Sand cat" results are problematic, therefore skip most sites.
+    # Pexels
+    pexels_list = pexels_collect(query, keys)
+    # Pixabay
+    pixabay_list = pixabay_collect(query, keys)
+    # Unsplash
+    unsplash_list = unsplash_collect(query, keys)
+    # Join lists.
+    # Sand cat and manul results are problematic, therefore skip sites.
     if animal_name == "sand_cat":
         post_list = reddit_list
+    elif animal_name == "manul":
+        post_list = reddit_list + pixabay_list + unsplash_list
     else:
-        # Pexels
-        pexels_list = pexels_collect(query, keys)
-        # Pixabay
-        pixabay_list = pixabay_collect(query, keys)
-        # Unsplash
-        unsplash_list = unsplash_collect(query, keys)
-        # Join lists.
         post_list = reddit_list + pexels_list + pixabay_list + unsplash_list
     # Pickle data.
     pfile_path = Path(__file__).parents[0].resolve() / f"data/{animal_name}_data.p"
@@ -53,7 +55,7 @@ def main():
     # Collect hedgehog content.
     scrape("hedgehog", "hedgehog", "Hedgehog+Hedgehogs+HedgehogsAreLiquid", keys)
     # Collect manul content.
-    scrape("manul", "'pallas's cat' manul", "PallasCats+manuls", keys)
+    scrape("manul", "manul", "PallasCats+manuls", keys)
     # Collect sand cat content.
     scrape("sand_cat","'sand cat'", "sandcats", keys)
     # Print final message.

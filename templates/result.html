@@ -1,6 +1,11 @@
 <!-- Result page -->
 {% extends "base.html" %}
 {% block body %}
+{% if post.title is none %}
+    {% set img_title = "Untitled" %}
+{% else %}
+    {% set img_title = post.title %}
+{% endif %}
 <main class="container">
   <!-- Page title. -->
   <div class="title" role="none">
@@ -9,16 +14,19 @@
   <!-- Picture with image title under it. -->
   <section class="subtitle" title="Random image result">
     <img class="normal" src="{{post.img_url}}" alt="Random {{title_var}} image">
-    <h2 title="Image title">{{post.title}}</h2>
+    <h2 title="Image title">"{{img_title}}"</h2>
   </section>
   <!-- Source data. -->
   <section class="item full-wide" title="Result details">
     <h3>
-      Form: <a href="{{post.src_url}}" target="_blank">{{post.source}}</a>
-      <br>
-      Uploaded by: <a href="{{post.auth_url}}" target="_blank">{{post.author}}</a>
-      <br>
-      <a href="{{post.post_url}}" target="_blank">Link to original</a>        
+      Form: <a class="custom-link" href="{{post.src_url}}"
+             target="_blank" title="Source website">{{post.source}}</a>
+      <br role="none">
+      Uploaded by: <a class="custom-link" href="{{post.auth_url}}"
+             target="_blank" title="Uploader profile">{{post.author}}</a>
+      <br role="none">
+      <a class="custom-link" href="{{post.post_url}}"
+             target="_blank" title="Original post">Link to original</a>
     </h3>
   </section>
   <!-- New and Back buttons. -->

@@ -123,8 +123,8 @@ img.icon:hover {
   opacity: 0.5;
 }
 
-
 /* Clickable */
+
 .clickable-pic {
   cursor: pointer;
   opacity: 0.6;
@@ -133,6 +133,30 @@ img.icon:hover {
 
 .clickable-pic:hover {
   opacity: 1;
+}
+
+.custom-link:link {
+  background-color: transparent;
+  color: #b6b8bc;
+  text-decoration: none;
+}
+
+.custom-link:visited {
+  color: #b6b8bc;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.custom-link:hover {
+  background-color: transparent;
+  color: #b6b8bc;
+  text-decoration: underline;
+}
+
+.custom-link:active {
+  color: #b6b8bc;
+  background-color: transparent;
+  text-decoration: underline;
 }
 
 /* Other */
