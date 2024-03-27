@@ -15,7 +15,7 @@ By OperaVaria, 2024.
 __author__ = "OperaVaria"
 __contact__ = "lcs_it@proton.me"
 __version__ = "2.0.0"
-__date__ = "2024.03.26"
+__date__ = "2024.03.27"
 
 
 # Licence:
@@ -33,6 +33,7 @@ warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Gen
 You should have received a copy of the GNU General Public License along with this program. If not,
 see <https://www.gnu.org/licenses/>
 """
+
 # Built-in imports:
 import json
 import pickle
@@ -48,16 +49,16 @@ from flask_minify import Minify
 from flask_session import Session
 from flask_talisman import Talisman
 
-# Other imports:
+# Import setting variables:
 from config.settings import csp  # Content security policy settings.
 from config.settings import bypass  # Minify bypass settings.
-
-# Create Flask app.
-app = Flask(__name__)
 
 # Create absolute paths.
 config_path = Path(__file__).parents[0].resolve() / "config"
 data_path = Path(__file__).parents[0].resolve() / "data"
+
+# Create Flask app.
+app = Flask(__name__)
 
 # Flask app configuration:
 app.config.from_file(f"{config_path}/secretKey.json", load=json.load) # Load secret key.

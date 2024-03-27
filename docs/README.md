@@ -7,12 +7,15 @@ The frontend component is a standard HTML-CCS-JS website, with a simple custom s
 
 ## Functionality
 
-The webapp, in its current form, is set up to be hosted at [pythonanywhere.com](https://www.pythonanywhere.com/).
-Scheduled background tasks (the scripts in ./scraping/) collect the top 30 "hot" posts from pre-set subreddits every night,
-and store the information in pickle files (./data/). The raw data is then read when Flask assembles the requested HTML page,
-and a random post is selected. The reddit scraping scripts use the [PRAW module by Bryce Boe](https://github.com/praw-dev/praw).
+A scheduled script (collect_script.py) gathers data from pre-set sources every night,
+and stores the information in pickle files (./data/). The raw data is then read when Flask
+assembles the requested HTML page, and a random post is selected.
 
-Server-side Flask sessions are utilised (via the Flask-Session extension) to avoid sending the same results to the same user multiple times.
+Currently scraped sources: Pixabay, Pexels, Unsplash, and thematic subreddits.
+
+The reddit scraping function uses the [PRAW module by Bryce Boe](https://github.com/praw-dev/praw).
+Server-side Flask sessions are utilised (via the [Flask-Session extension]( https://github.com/pallets-eco/flask-session))
+to avoid sending the same results to the same user multiple times.
 
 The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display correctly on all screen types.
 
@@ -26,7 +29,7 @@ The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display c
 
 ## Other
 
-The currently running version is accessible: **[here](https://serotonin-operavaria.eu.pythonanywhere.com/)**.
+The currently running version is accessible: **[here](https://serotonin.fun/)**.
 
 Sources of the static images used in this project: **[image_sources.md](image_sources.md)**.
 
