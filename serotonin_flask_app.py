@@ -15,7 +15,7 @@ By OperaVaria, 2024.
 __author__ = "OperaVaria"
 __contact__ = "lcs_it@proton.me"
 __version__ = "2.0.0"
-__date__ = "2024.03.27"
+__date__ = "2024.03.28"
 
 
 # Licence:
