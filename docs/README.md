@@ -29,7 +29,7 @@ The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display c
 
 ## Other
 
-The currently running version is accessible: **[here](https://serotonin.fun/)**.
+The currently running version is accessible: **[here](https://www.serotonin.fun/)**.
 
 Sources of the static images used in this project: **[image_sources.md](image_sources.md)**.
 
