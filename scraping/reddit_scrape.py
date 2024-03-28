@@ -18,7 +18,7 @@ def reddit_collect(sub_red_name, keys):
     reddit = praw.Reddit(
         client_id = keys["reddit_app"]["id"],
         client_secret = keys["reddit_app"]["secret"],
-        user_agent = f"{platform}:instant-serotonin:v2.0.0 (by u/just_want_api)")
+        user_agent = f"{platform}:instant-serotonin:v2.0.1 (by u/just_want_api)")
     # Set subreddit(s).
     subreddit = reddit.subreddit(sub_red_name)
     # Declare post list.

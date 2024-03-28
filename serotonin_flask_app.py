@@ -14,7 +14,7 @@ By OperaVaria, 2024.
 # Metadata variables:
 __author__ = "OperaVaria"
 __contact__ = "lcs_it@proton.me"
-__version__ = "2.0.0"
+__version__ = "2.0.1"
 __date__ = "2024.03.28"
 
 
