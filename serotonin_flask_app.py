@@ -43,6 +43,7 @@ from random import choice
 
 # Flask imports:
 from flask import Flask, abort, render_template, request, send_from_directory, session
+from werkzeug.utils import secure_filename
 
 # Import Flask extensions:
 from flask_minify import Minify
@@ -116,11 +117,11 @@ def result(animal):
     # Set up session exception list, if non-existent.
     if "exceptPool" not in session:
         session["exceptPool"] = []
-    # Load post from pickled list, excluding exceptPool. If out of posts,
-    # display error page.
+    # Create secure pickle file path, load post from pickled list, excluding exceptPool.
+    # If out of posts, display error page.
+    pickle_file = secure_filename(f"{data_path}/{animal}_data.p")
     try:
-        post = load_from_pickle(f"{data_path}/{animal}_data.p",
-                                session.get("exceptPool"))
+        post = load_from_pickle(pickle_file, session.get("exceptPool"))
     except IndexError:
         return render_template("no-post.html", current_year=current_year, title_var=animal_title,
                                animal_var=animal_var, version=__version__)
