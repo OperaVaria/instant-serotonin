@@ -29,13 +29,13 @@ document.querySelectorAll(".link-btn").forEach((btn) => {
 
 // Load a page, same tab.
 function loadPage(page) {
-  let safePage = encodeURI(page)
-  window.location.href = safePage;
+  let safePage = encodeURI(page);
+  window.location.assign(safePage);
 }
 
 // Load a page in new tab.
 function loadNewTab(page) {
-  let safePage = encodeURI(page)
+  let safePage = encodeURI(page);
   window.open(safePage, "_blank");
 }
 
