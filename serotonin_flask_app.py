@@ -54,16 +54,19 @@ from flask_talisman import Talisman
 from config.settings import csp  # Content security policy settings.
 from config.settings import bypass  # Minify bypass settings.
 
-# Create absolute paths.
-config_path = Path(__file__).parents[0].resolve() / "config"
-data_path = Path(__file__).parents[0].resolve() / "data"
+# Create path constants.
+PROJECT_DIR_PATH = Path(__file__).parents[0].resolve()
+CONFIG_DIR_PATH = (PROJECT_DIR_PATH).joinpath("config/")
+DATA_DIR_PATH = (PROJECT_DIR_PATH).joinpath("data/")
+SECRET_KEY_PATH = (CONFIG_DIR_PATH).joinpath("secretKey.json")
+SETTINGS_FILE_PATH = (CONFIG_DIR_PATH).joinpath("settings.py")
 
 # Create Flask app.
 app = Flask(__name__)
 
 # Flask app configuration:
-app.config.from_file(f"{config_path}/secretKey.json", load=json.load) # Load secret key.
-app.config.from_pyfile(f"{config_path}/settings.py") # Load other settings.
+app.config.from_file(SECRET_KEY_PATH, load=json.load) # Load secret key.
+app.config.from_pyfile(SETTINGS_FILE_PATH) # Load other settings.
 
 # Set up Talisman. Force HTTPS should normally be on, but Cloudflare handles it.
 tali = Talisman(app, content_security_policy=csp, force_https=False)
@@ -119,9 +122,10 @@ def result(animal):
         session["exceptPool"] = []
     # Create secure pickle file path, load post from pickled list, excluding exceptPool.
     # If out of posts, display error page.
-    pickle_file = secure_filename(f"{data_path}/{animal}_data.p")
+    file_name = secure_filename(f"{animal}_data.p")
+    pickle_file_path = (DATA_DIR_PATH).joinpath(file_name)
     try:
-        post = load_from_pickle(pickle_file, session.get("exceptPool"))
+        post = load_from_pickle(pickle_file_path, session.get("exceptPool"))
     except IndexError:
         return render_template("no-post.html", current_year=current_year, title_var=animal_title,
                                animal_var=animal_var, version=__version__)
