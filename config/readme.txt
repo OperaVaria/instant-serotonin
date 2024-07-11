@@ -1,1 +1,0 @@
-Location of the secret key config file (secretKey.json).
