@@ -37,7 +37,7 @@ def scrape(animal_name, query, subreddits, keys):
     else:
         post_list = reddit_list + pexels_list + pixabay_list + unsplash_list
     # Pickle data.
-    pfile_path = Path(__file__).parents[0].resolve() / f"data/{animal_name}_data.p"
+    pfile_path = (Path(__file__).parents[0].resolve()).joinpath(f"data/{animal_name}_data.p")
     with open(pfile_path, "wb") as file:
         pickle.dump(post_list, file)
     # Print number of items.
@@ -47,7 +47,7 @@ def scrape(animal_name, query, subreddits, keys):
 def main():
     """Image scraping main function."""
     # Load login information file.
-    keys_path = Path(__file__).parents[0].resolve() / "scraping/auth/keys.yaml"
+    keys_path = (Path(__file__).parents[0].resolve()).joinpath("scraping/auth/keys.yaml")
     with open(keys_path, "r", encoding="utf-8") as keys_file:
         keys = safe_load(keys_file)
     # Collect capybara content.

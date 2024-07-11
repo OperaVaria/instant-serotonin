@@ -1,19 +1,17 @@
 """ Flask and Flask extensions configuration file. """
 
-# Built-in imports:
+# Imports:
 from datetime import timedelta
 from pathlib import Path
-
-# CacheLib import:
 from cachelib.file import FileSystemCache
 
 # Minify settings:
 bypass = ["robots_txt", "humans_txt", "sitemap_xml"]
 
 # Session settings:
-sessions_path = Path(__file__).parents[1].resolve() / "flask_session"
+SESSIONS_PATH = (Path(__file__).parents[1].resolve()).joinpath("flask_session/")
 SESSION_TYPE = "cachelib"
-SESSION_CACHELIB = FileSystemCache(threshold=500, cache_dir=sessions_path)
+SESSION_CACHELIB = FileSystemCache(threshold=500, cache_dir=SESSIONS_PATH)
 SESSION_PERMANENT = True
 PERMANENT_SESSION_LIFETIME = timedelta(hours=24)
 SESSION_COOKIE_SECURE = True

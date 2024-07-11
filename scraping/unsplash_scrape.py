@@ -15,8 +15,13 @@ def unsplash_collect(query, keys):
     # API request.
     url = "https://api.unsplash.com/search/photos"
     headers = {"Accept-Version": "v1"}
-    params = {"client_id": keys["unsplash"]["access_key"], "query": query, "per_page": 20, "content_filter": "high"}
-    res = requests.get(url = url, headers = headers, params = params, timeout = 60)
+    params = {
+        "client_id": keys["unsplash"]["access_key"],
+        "query": query,
+        "per_page": 20,
+        "content_filter": "high",
+    }
+    res = requests.get(url=url, headers=headers, params=params, timeout=60)
     # Error handling.
     if res.ok is not True:
         return res.raise_for_status()
@@ -25,8 +30,15 @@ def unsplash_collect(query, keys):
     unsplash_list = []
     # Scrape response, create Post objects, append to list.
     for result in res_json_data["results"]:
-        result = Post(result["description"], "Unsplash", result["user"]["name"], "https://unsplash.com/",
-                      result["user"]["links"]["html"], result["links"]["html"], result["urls"]["regular"])
+        result = Post(
+            result["description"],
+            "Unsplash",
+            result["user"]["name"],
+            "https://unsplash.com/",
+            result["user"]["links"]["html"],
+            result["links"]["html"],
+            result["urls"]["regular"],
+        )
         unsplash_list.append(result)
     # Return list.
     return unsplash_list

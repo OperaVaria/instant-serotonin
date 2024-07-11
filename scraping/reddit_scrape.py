@@ -26,10 +26,15 @@ def reddit_collect(sub_red_name, keys):
     # Scrape submissions, create Post objects, append to list.
     for submission in subreddit.hot(limit=30):
         if submission.url.lower().endswith((".png", ".jpg", ".jpeg", ".gif")):
-            post = Post(submission.title, f"r/{submission.subreddit.display_name}", submission.author,
-                        f"https://www.reddit.com/r/{submission.subreddit.display_name}/",
-                        f"https://www.reddit.com/user/{submission.author}/",
-                        f"https://www.reddit.com{submission.permalink}", submission.url)
+            post = Post(
+                submission.title,
+                f"r/{submission.subreddit.display_name}",
+                submission.author,
+                f"https://www.reddit.com/r/{submission.subreddit.display_name}/",
+                f"https://www.reddit.com/user/{submission.author}/",
+                f"https://www.reddit.com{submission.permalink}",
+                submission.url,
+            )
             reddit_post_list.append(post)
     # Return list.
     return reddit_post_list
