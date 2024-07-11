@@ -28,13 +28,15 @@ document.querySelectorAll(".link-btn").forEach((btn) => {
 });
 
 // Load a page, same tab.
-function loadPage(Page) {
-  window.location.href = Page;
+function loadPage(page) {
+  let safePage = encodeURI(page)
+  window.location.href = safePage;
 }
 
 // Load a page in new tab.
-function loadNewTab(Page) {
-  window.open(Page, "_blank");
+function loadNewTab(page) {
+  let safePage = encodeURI(page)
+  window.open(safePage, "_blank");
 }
 
 // Reset alert box.
