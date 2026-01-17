@@ -11,8 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Internal file path security.
 
+### Fixed
+
+- Typos.
+
 ### Changed
 
+- Updated screenshots.
 - Updated requirements.txt.
 - Updated changelog.
 

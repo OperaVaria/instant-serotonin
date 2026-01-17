@@ -22,7 +22,8 @@ The HTML-CSS side has a responsive, Flexbox layout. It is optimized to display c
 ## Screenshots
 
 <p align="center">
-  <img src="./assets/screenshots/main.jpg" alt="index.html" height=auto width="700">
+  <img src="./assets/screenshots/main.jpg" alt="index.html top" height=auto width="700">
+  <img src="./assets/screenshots/main_2.jpg" alt="index.html bottom" height=auto width="700">
   <img src="./assets/screenshots/manul.jpg" alt="manul.html" height=auto width="700">
   <img src="./assets/screenshots/capybara.jpg" alt="capybara.html" height=auto width="700">
 </p>
