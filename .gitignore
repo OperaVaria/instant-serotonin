@@ -6,4 +6,5 @@ scraping/auth/keys.yaml
 .temp/
 .venv/
 .vscode/
+.venv
 .gitignore
