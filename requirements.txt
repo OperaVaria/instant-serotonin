@@ -9,7 +9,10 @@ Flask==3.1.2
 Flask-Minify==0.50
 Flask-Session==0.8.0
 flask-talisman==1.1.0
+<<<<<<< HEAD
 htmlmin==0.1.12; python_version <= '3.10'
+=======
+>>>>>>> 40b0cb3dd63b3319707da3c043ff4c871abd694c
 htmlminf==0.1.13
 idna==3.11
 itsdangerous==2.2.0
