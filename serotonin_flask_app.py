@@ -73,7 +73,7 @@ app.config.from_pyfile(SETTINGS_FILE_PATH) # Load other settings.
 tali = Talisman(app, content_security_policy=csp, force_https=False)
 
 # Set up Minify.
-mini = Minify(app=app, bypass=bypass, html=True, js=True, cssless=True)
+mini = Minify(app=app, bypass=bypass)
 
 # Set up Session.
 sess = Session(app)
